@@ -28,7 +28,7 @@ npm install
 npm run build
 ```
 
-## Run the App
+## Run the Client
 
 In the same tab, since we're already in the `client` directory, launch the client:
 
@@ -36,11 +36,26 @@ In the same tab, since we're already in the `client` directory, launch the clien
 npm run dev
 ```
 
-Open a *new tab*. Assuming that your terminal manager opens new tab at the same locatin:
+## Run the Server
+
+Open a *new tab*. Assuming that your terminal manager opens new tab at the same location:
 
 ```
 cd ..
 cd server
+```
+
+Create an empty `.env` file:
+
+```
+touch .env
+```
+
+Fill in `.env` with your database credentials (as discussed in class).
+
+Then:
+
+```
 npm start
 ```
 
