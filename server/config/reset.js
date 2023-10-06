@@ -1,57 +1,49 @@
 import { pool } from '../config/database.js'
 import '../config/dotenv.js'
-import giftData from '../data/gifts.js'
+import eventData from '../data/events.js'
 
-const createGiftsTable = async () => {
+const createEventsTable = async () => {
   const createTableQuery = `
-    DROP TABLE IF EXISTS gifts;
+    DROP TABLE IF EXISTS events;
 
-    CREATE TABLE IF NOT EXISTS gifts (
+    CREATE TABLE IF NOT EXISTS events (
       id SERIAL PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
-      pricePoint VARCHAR(10) NOT NULL,
-      audience VARCHAR(255) NOT NULL,
-      image VARCHAR(255) NOT NULL,
-      description TEXT NOT NULL,
-      submittedBy VARCHAR(255) NOT NULL,
-      submittedOn TIMESTAMP NOT NULL
+      name VARCHAR(255) NOT NULL,  
+      date VARCHAR(255) NOT NULL,
+      location VARCHAR(255) NOT NULL,
     )
   `
 
   try {
     await pool.query(createTableQuery)
-    console.log('🎉 gifts table created successfully')
+    console.log('🎉 events table created successfully')
   } catch (err) {
-    console.error('⚠️ error creating gifts table', err)
+    console.error('⚠️ error creating events table', err)
   }
 }
 
-const seedGiftsTable = async () => {
-  await createGiftsTable()
+const seedEventsTable = async () => {
+  await createEventsTable()
 
-  giftData.forEach((gift) => {
+  eventData.forEach((event) => {
     const insertQuery = {
-      text: 'INSERT INTO gifts (name, pricePoint, audience, image, description, submittedBy, submittedOn) VALUES ($1, $2, $3, $4, $5, $6, $7)'
+      text: 'INSERT INTO events (name, date, location) VALUES ($1, $2, $3)'
     }
 
     const values = [
-      gift.name,
-      gift.pricePoint,
-      gift.audience,
-      gift.image,
-      gift.description,
-      gift.submittedBy,
-      gift.submittedOn
+      event.name,
+      event.date,
+      event.location,
     ]
 
     pool.query(insertQuery, values, (err, res) => {
       if (err) {
-        console.error('⚠️ error inserting gift', err)
+        console.error('⚠️ error inserting event', err)
         return
       }
-      console.log(`✅ ${gift.name} added successfully`)
+      console.log(`✅ ${event.name} added successfully`)
     })
   })
 }
 
-seedGiftsTable()
+seedEventsTable()

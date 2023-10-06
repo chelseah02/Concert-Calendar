@@ -4,20 +4,18 @@ import './Card.css'
 
 const Card = (props) => { 
     
-    const [gift, setGift] = useState({id: 0, name: "", pricepoint: "", audience: "", image: ""})
+    const [event, setEvent] = useState({id: 0, name: "", date: "", location: ""})
 
     useEffect(() => {
-        setGift({id: props.id, name: props.name, pricepoint: props.pricepoint, audience: props.audience, image: props.image});
+        setEvent({id: props.id, name: props.name, date: props.date, location: props.location});
     }, [props]);
 
     return (
         <div className="card">
-            <div className='top-container' style={{ backgroundImage:`url(${gift.image})`}}></div>
             <div className='bottom-container'>
-                <h3>{gift.name}</h3>
-                <p>{'Price: ' + gift.pricepoint}</p>
-                <p>{'Great For: ' + gift.audience}</p>
-                <Link to={'/gift/' + gift.id}><a>Read More →</a></Link>
+                <h3>{event.name}</h3>
+                <p>{'Location: ' + event.location}</p>
+                <Link to={'/event/' + event.id}><a>Read More →</a></Link>
             </div>
         </div>
     )

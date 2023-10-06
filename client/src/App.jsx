@@ -1,24 +1,24 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { useRoutes } from 'react-router-dom'
-import Gifts from './pages/Gifts'
-import GiftDetails from './pages/GiftDetails'
-import PageNotFound from './pages/PageNotFound'
+import Events from './pages/Events';
+import EventDetails from './pages/EventDetails';
+import PageNotFound from './pages/PageNotFound';
 import { Link } from 'react-router-dom'
 
 
 const App = () => {
   
-  const [gifts, setGifts] = useState([]);
+  const [events, setEvents] = useState([]);
 
 
   useEffect(() => {
-    const fetchGifts = async () => {
-      const response = await fetch('http://localhost:3001/gifts')
+    const fetchEvents = async () => {
+      const response = await fetch('http://localhost:3001/events')
       const data = await response.json()
-      setGifts(data)
+      setEvents(data)
     }
-    fetchGifts()
+    fetchEvents()
   }, []);
 
 
@@ -26,11 +26,11 @@ const App = () => {
   let element = useRoutes([
     {
       path: "/",
-      element:<Gifts data={gifts}/>
+      element:<Events data={events}/>
     },
     {
-      path:"/gift/:id",
-      element: <GiftDetails data={gifts} />
+      path:"/event/:id",
+      element: <EventDetails data={events} />
     },
     {
       path:"/*",
@@ -47,7 +47,7 @@ const App = () => {
         <div className="header-container">
           <div className="header-left">
             <img src="/logo.png"/>
-            <h1>UnEarthed</h1>
+            <h1>Concert Calendar</h1>
           </div>
           <div className="header-right">
             <Link to="/"><button className="homeBtn">Home</button></Link>
