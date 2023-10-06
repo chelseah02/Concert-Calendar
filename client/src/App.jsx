@@ -46,8 +46,8 @@ const App = () => {
       <header>
         <div className="header-container">
           <div className="header-left">
-            <img src="/logo.png"/>
             <h1>Concert Calendar</h1>
+            <br/>
           </div>
           <div className="header-right">
             <Link to="/"><button className="homeBtn">Home</button></Link>

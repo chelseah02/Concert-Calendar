@@ -10,13 +10,13 @@ const createEventsTable = async () => {
       id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,  
       date VARCHAR(255) NOT NULL,
-      location VARCHAR(255) NOT NULL,
-    )
+      location VARCHAR(255) NOT NULL
+    );
   `
 
   try {
-    await pool.query(createTableQuery)
-    console.log('🎉 events table created successfully')
+    await pool.query(createTableQuery);
+    console.log('🎉 events table created successfully');
   } catch (err) {
     console.error('⚠️ error creating events table', err)
   }
