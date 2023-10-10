@@ -21,7 +21,9 @@ const Events = (props) => {
                    <Card id={event.id} 
                          name={event.name} 
                          date={event.date} 
-                         location={event.location} />
+                         location={event.location}
+                         locationid = {event.locationid}
+                          />
 
                 ) : <h3 className="noResults">{'No Events Yet 😞'}</h3>
             }

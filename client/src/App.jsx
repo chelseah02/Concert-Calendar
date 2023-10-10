@@ -3,14 +3,17 @@ import React, { useState, useEffect } from 'react';
 import { useRoutes } from 'react-router-dom'
 import Events from './pages/Events';
 import EventDetails from './pages/EventDetails';
+import LocationDetails from './pages/LocationDetails';
 import PageNotFound from './pages/PageNotFound';
+import Locations from './pages/Locations';
 import { Link } from 'react-router-dom'
 
 
 const App = () => {
   
   const [events, setEvents] = useState([]);
-
+  const [locations, setLocations] = useState([]);
+  const [locationDetails, setLocationDetails] = useState([]);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -21,16 +24,28 @@ const App = () => {
     fetchEvents()
   }, []);
 
+  useEffect(() => {
+    const fetchLocations = async () => {
+      const response = await fetch('http://localhost:3001/locations')
+      const locData = await response.json()
+      setLocations(locData)
+    }
+    fetchLocations()
+  }, []);
 
   // Sets up routes
   let element = useRoutes([
     {
-      path: "/",
+      path: "/events",
       element:<Events data={events}/>
     },
     {
       path:"/event/:id",
-      element: <EventDetails data={events} />
+      element: <LocationDetails />
+    },
+    {
+      path:"/locations",
+      element: <Locations data={locations} />
     },
     {
       path:"/*",

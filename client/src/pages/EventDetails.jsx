@@ -4,7 +4,7 @@ import './EventDetails.css'
 
 const EventDetails = ({data}) => {
 
-    const [event, setEvent] = useState({id: 0, name: "", date: "", location: ""})
+    const [event, setEvent] = useState({id: 0, name: "", date: "", location: "", locationid: 0})
     const { id } = useParams()
 
     useEffect(() => {

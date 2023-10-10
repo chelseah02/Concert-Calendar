@@ -13,7 +13,22 @@
     margin-bottom: 60px;
 
 }
+.loc-card {
+    width: 200px;
+    height: 100px;
+    background: transparent;
+    background-color:rgb(195, 195, 237);
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(3, 7, 89);
+    border-radius: 0.3rem;
+    box-shadow: 15px 15px 5px 2px rgba(0, 0, 255, 0.057);
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 40px;
+    margin-bottom: 60px;
 
+}
 .card img {
     height: 100%;
 }
