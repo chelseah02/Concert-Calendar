@@ -4,7 +4,7 @@ Submitted by: **Chelsea Heredia**
 
 About this web app: **This application provides a list of locations for concerts around the state of Texas. After the user selects a location, they will be provided with a list of concerts available in that location. Each concert event also provides the name of the headlining artist and the date of the show as well.**
 
-Time spent: **4** hours
+Time spent: **8** hours
 
 ## Required Features
 
@@ -27,7 +27,9 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you added to improve the site's functionality!
+- [X] List anything else that you added to improve the site's functionality!
+- [X] I have an additional page with all possible Events that the user can view
+- [X] On the location page, once the user navigates to a specific locationd details page, they not only see a list but a detailed showing of each event and its date that is occurring at that location
 
 ## Video Walkthrough
 
@@ -45,7 +47,7 @@ GIF created with ...  ScreentoGif
 ## Notes
 
 Describe any challenges encountered while building the app or any additional context you'd like to add.
-Right now the app is showing a list of events instead of locations. Once you press on the event you are redirected to a unique event page instead of a location page. The event page involves a list of information for that event, instead of the unique location page showing a list of all the events. I will fix these functionality issues within 72 hours. (STATUS AS OF 10/06/2023)
+All features are implemented. See GIF 1 for home page and database connection. See GIF 2 for locations dashboard and locations details page showing information for all events occurring at that location and that each locations details page has a unique URL.
 
 
 ## License
